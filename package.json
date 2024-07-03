@@ -2,9 +2,9 @@
   "name": "blogapi_forntend_expressjs_odinproject",
   "version": "1.0.0",
   "description": "The Front End Part Of Blog APi Odin Project",
-  "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
