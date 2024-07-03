@@ -59,4 +59,10 @@ npm run dev
 ```bash
 npm run build
 ```
+
+<li>Hosted In <a href="https://frontodinend.netlify.app/" >Hosted</a></li>
+ 
+</li>
 </ul>
+
+
