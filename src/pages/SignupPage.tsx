@@ -21,10 +21,6 @@ const SignupPage = () => {
   let globalVariables = useContext(GlobalContext);
   const navigateTO = useNavigate();
 
-  useEffect(() => {
-    if (!globalVariables.isAuthenticated) navigateTO("/");
-  }, []);
-
   const submitClicked = async (event: MouseEvent) => {
     if (!formRef.current?.checkValidity()) {
       return;

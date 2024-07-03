@@ -13,10 +13,6 @@ export default () => {
   let auth = useContext(GlobalContext);
   let navigateTO = useNavigate();
 
-  useEffect(() => {
-    if (!auth?.isAuthenticated) navigateTO("/");
-  }, []);
-
   const submitClicked = async (event: MouseEvent) => {
     if (!formRef.current?.checkValidity()) {
       return;
