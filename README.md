@@ -2,6 +2,7 @@
 
 <h2>About This Project</h2>
 <p>Has Back End Repository</p>
+<a href="https://github.com/joelwillSeek/BlogAPi_BackEnd_ExpressJS_OdinProject">Back End</a>
 <ul>
  <li>
    Can sign up 
@@ -24,7 +25,7 @@
 
 <h1>Build With</h1>
 <ul>
-   <li>Made with React <img width="20px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png"/></li> 
+   <li>Made with React <img width="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"/></li> 
   
 </ul>
 
@@ -32,7 +33,7 @@
 <p>Clone the project </p>
 
 ```bash
-git clone https://github.com/joelwillSeek/BlogApi_FrontEnd_ExpressJS_OdinProject
+git clone https://github.com/joelwillSeek/BlogAPi_BackEnd_ExpressJS_OdinProject
 ```
 <ul>
   <li>Npm</li>
@@ -45,5 +46,17 @@ npm install
 
 ```typescript
 const uri="URL"
+```
+
+<li>To run development</li>
+
+```bash
+npm run dev
+```
+
+<li>To build</li>
+
+```bash
+npm run build
 ```
 </ul>
