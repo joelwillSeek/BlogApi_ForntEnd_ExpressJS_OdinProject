@@ -90,7 +90,10 @@ export default () => {
             />
             <p className={`${styles.logInPhrase}`}>
               Don't have an account?{" "}
-              <a href="/signUp" className={`${styles.blueLink}`}>
+              <a
+                onClick={() => navigateTO("/signUp")}
+                className={`${styles.blueLink}`}
+              >
                 SignUp
               </a>
             </p>

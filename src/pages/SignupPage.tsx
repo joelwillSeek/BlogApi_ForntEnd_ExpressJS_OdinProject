@@ -107,7 +107,10 @@ const SignupPage = () => {
             />
             <p className={`${styles.logInPhrase}`}>
               Already have an account?{" "}
-              <a href="/" className={`${styles.blueLink}`}>
+              <a
+                onClick={() => navigateTO("/")}
+                className={`${styles.blueLink}`}
+              >
                 Login
               </a>
             </p>
