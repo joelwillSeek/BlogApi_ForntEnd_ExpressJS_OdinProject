@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export const serverPath = "http://localhost:3001";
+export const serverPath = process.env.URI;
 
 export const serverRoutes = {
   updatePostRoute: serverPath + "/post/updateAPost",
@@ -9,7 +9,6 @@ export const serverRoutes = {
 };
 
 //Types
-
 export type updatePostComponents = {
   title: string;
   description: string;

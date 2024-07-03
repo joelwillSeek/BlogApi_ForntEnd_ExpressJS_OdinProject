@@ -10,6 +10,11 @@ import LoginPage from "./pages/LoginPage";
 import SeeMoreOfPublicPost from "./pages/SeeMoreOfPublicPost";
 import UpdatePostAndCommentsPage from "./pages/UpdatepostAndComments";
 import { links } from "./globalSettings";
+import dotenv from "dotenv";
+
+// Load environment variables from .env file
+dotenv.config();
+
 function App() {
   return (
     <>
