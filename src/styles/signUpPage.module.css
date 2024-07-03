@@ -1,0 +1,104 @@
+:root {
+  --primary-color: #f6f5f5;
+  --secondary-color: #f9e2af;
+  --account: #009fbd;
+}
+
+.logIn {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  max-height: 600px;
+  max-width: 100%;
+}
+
+.formOfLogIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+.logInBody {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 100vh;
+  background-color: var(--primary-color);
+}
+
+.logInHeader {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bigBanner {
+  background-image: url("../assets/bigbanner.jpg");
+  border-radius: 0px 20px 20px 0px;
+  width: 200px;
+  min-height: 600px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logInPhrase {
+  color: rgb(151, 150, 150);
+  font-size: x-small;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  align-self: self-start;
+}
+
+.inputBox {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  align-self: self-start;
+  border: 2px solid rgba(215, 215, 215, 0.54);
+}
+
+.inputBox::placeholder {
+  color: var(--account);
+}
+
+.submitInputBox {
+  padding: 1rem 2.7rem;
+  font-size: large;
+  font-weight: bold;
+  transition: background-color ease-in-out 300ms, color ease-in-out 300ms,
+    border-color ease-in-out 300ms;
+  border: 1px solid #000;
+  align-self: self-start;
+
+  margin: 2rem 0;
+}
+
+.submitInputBox:hover {
+  background-color: var(--account);
+  color: white;
+  border-color: #fff;
+}
+
+.blueLink {
+  color: var(--account);
+  transition: font-size ease-in-out 300ms;
+  position: absolute;
+  offset-anchor: inherit;
+}
+
+.blueLink:hover {
+  font-size: 2em;
+  margin: 0;
+}

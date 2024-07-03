@@ -2,7 +2,7 @@ import {
   GlobalContextTypes,
   serverRoutes,
   updatePost,
-} from "../../../globalSettings";
+} from "../../globalSettings";
 
 export async function fetchIfPostUpdated(
   updatePost: updatePost,

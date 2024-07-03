@@ -1,4 +1,4 @@
-import { GlobalContextTypes, serverRoutes } from "../../../globalSettings";
+import { GlobalContextTypes, serverRoutes } from "../../globalSettings";
 
 export async function tryFetchCommentDelete(
   _id: string,

@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
-import GlobalContext from "../../ContextProvider";
-import UpdatePost from "../../components/post/UpdatePost";
-import CommentToUpdate from "../../components/comment/CommentToUpdate";
+import React, { useContext, useEffect, useState } from "react";
+import GlobalContext from "../ContextProvider";
+import UpdatePost from "../components/post/UpdatePost";
+import CommentToUpdate from "../components/comment/CommentToUpdate";
+import { useNavigate } from "react-router-dom";
 
 export default function UpdatePostAndCommentsPage() {
   const globalVariables = useContext(GlobalContext);
+  const navigateTO = useNavigate();
+
+  useEffect(() => {
+    if (!globalVariables.isAuthenticated) navigateTO("/");
+  }, []);
 
   const { _id, timecreated, title, discription, isPublic, allCommentsMade } =
     globalVariables.postToBeViewIndividually.posts;
+
+  let [postComment, setPostComment] = useState(allCommentsMade);
+
+  console.log(allCommentsMade);
 
   return (
     <>
@@ -20,7 +30,7 @@ export default function UpdatePostAndCommentsPage() {
           isPublic={isPublic}
         />
 
-        {allCommentsMade.map((oneComment) => {
+        {postComment.map((oneComment) => {
           return (
             <CommentToUpdate
               postID={_id}
@@ -28,6 +38,8 @@ export default function UpdatePostAndCommentsPage() {
               comment={oneComment.comment}
               timeStamp={oneComment.timeStamp}
               _id={oneComment._id}
+              setPostComment={setPostComment}
+              postComment={postComment}
             />
           );
         })}

@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignupPage from "./assets/pages/SignupPage";
+import SignupPage from "./pages/SignupPage";
 import "./styles/styles.css";
 import { GlobalContextProvider } from "./ContextProvider";
-import PublicPostPage from "./assets/pages/PublicPostPage";
-import { AuthoringAndEditing } from "./assets/pages/AuthoringAndEditing";
-import LoginPage from "./assets/pages/LoginPage";
-import SeeMoreOfPublicPost from "./assets/pages/SeeMoreOfPublicPost";
-import UpdatePostAndCommentsPage from "./assets/pages/UpdatepostAndComments";
+import PublicPostPage from "./pages/PublicPostPage";
+import { AuthoringAndEditing } from "./pages/AuthoringAndEditing";
+import LoginPage from "./pages/LoginPage";
+import SeeMoreOfPublicPost from "./pages/SeeMoreOfPublicPost";
+import UpdatePostAndCommentsPage from "./pages/UpdatepostAndComments";
 import { links } from "./globalSettings";
 function App() {
   return (

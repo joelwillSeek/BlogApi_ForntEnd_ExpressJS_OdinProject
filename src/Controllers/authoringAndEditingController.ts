@@ -3,7 +3,7 @@ import {
   GlobalContextTypes,
   postReciveTypes,
   serverPath,
-} from "../../globalSettings";
+} from "../globalSettings";
 
 export async function getAllUserPosts(
   setGetALLUserPostsStored: Dispatch<
@@ -35,7 +35,7 @@ export async function getAllUserPosts(
 export async function fetchCreatePost(
   titleElement: HTMLInputElement,
   discriptionElement: HTMLTextAreaElement,
-  publicElement: HTMLInputElement,
+  isPublic: boolean,
   auth: GlobalContextTypes
 ) {
   const response = await fetch(`${serverPath + "/post/createAPost"}`, {
@@ -47,7 +47,7 @@ export async function fetchCreatePost(
     body: JSON.stringify({
       title: titleElement?.value,
       discription: discriptionElement?.value,
-      isPublic: publicElement?.checked,
+      isPublic: isPublic,
     }),
   });
 

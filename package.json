@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/joelwillSeek/BlogApi_ForntEnd_ExpressJS_OdinProject#readme",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.21",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "date-and-time": "^3.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.0",

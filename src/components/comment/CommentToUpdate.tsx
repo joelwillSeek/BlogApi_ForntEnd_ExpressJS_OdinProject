@@ -1,7 +1,7 @@
-import React, { MouseEvent, useContext } from "react";
+import React, { Dispatch, MouseEvent, SetStateAction, useContext } from "react";
 import { commentTypes } from "../../globalSettings";
-import { tryFetchCommentDelete } from "../../assets/Controllers/comment/commentToUpdateController";
 import GlobalContext from "../../ContextProvider";
+import { tryFetchCommentDelete } from "../../Controllers/comment/commentToUpdateController";
 
 export default function CommentToUpdate({
   commenterName,
@@ -9,14 +9,25 @@ export default function CommentToUpdate({
   timeStamp,
   _id,
   postID,
+  setPostComment,
+  postComment,
 }: {
   commenterName: string;
   comment: string;
   timeStamp: string;
   _id: string;
   postID: string;
+  postComment: commentTypes[];
+  setPostComment: Dispatch<SetStateAction<commentTypes[]>>;
 }) {
   const globalVariables = useContext(GlobalContext);
+
+  function removeTheComment() {
+    const withOutThisComment = postComment.filter(
+      (oneComment) => oneComment._id != _id
+    );
+    setPostComment([...withOutThisComment]);
+  }
 
   async function deleteClicked(e: MouseEvent) {
     try {
@@ -29,6 +40,7 @@ export default function CommentToUpdate({
       if (response.status != 200) {
         console.log("Did not delete");
       } else {
+        removeTheComment();
         alert("Comment Deleted");
       }
     } catch (Err) {

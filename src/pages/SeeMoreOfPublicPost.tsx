@@ -5,10 +5,10 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { commentTypes, serverPath } from "../../globalSettings";
-import Post from "../../components/Post";
-import GlobalContext from "../../ContextProvider";
-import Comments from "../../components/comment/Comments";
+import { commentTypes, serverPath } from "../globalSettings";
+import Post from "../components/Post";
+import GlobalContext from "../ContextProvider";
+import Comments from "../components/comment/Comments";
 import { useNavigate } from "react-router-dom";
 
 export default function SeeMoreOfPublicPost() {
@@ -16,7 +16,7 @@ export default function SeeMoreOfPublicPost() {
 
   const auth = useContext(GlobalContext);
 
-  let { title, _id, description, timecreated, isPublic, allCommentsMade } =
+  let { title, _id, discription, timecreated, isPublic, allCommentsMade } =
     auth.postToBeViewIndividually.posts;
 
   let [commentUpToDate, setCommentUpToDate] =
@@ -31,6 +31,7 @@ export default function SeeMoreOfPublicPost() {
   function attackCommentToUi() {
     const textAreaElement = textAreaRef.current;
     const newComment: commentTypes = {
+      _id: "",
       comment: textAreaElement.value,
       commenterName: auth.userName,
       timeStamp: Date.now().toString(),
@@ -73,11 +74,12 @@ export default function SeeMoreOfPublicPost() {
       <Post
         title={title}
         _id={_id}
-        description={description}
+        discription={discription}
         timecreated={timecreated}
         seenInPublicPage={false}
         isPublic={isPublic}
         allCommentsMade={allCommentsMade}
+        updateable={false}
       />
 
       <div>
@@ -88,6 +90,7 @@ export default function SeeMoreOfPublicPost() {
       {commentUpToDate.map((oneOfTheComment, index) => {
         return (
           <Comments
+            _id=""
             key={index}
             commenterName={oneOfTheComment.commenterName}
             comment={oneOfTheComment.comment}

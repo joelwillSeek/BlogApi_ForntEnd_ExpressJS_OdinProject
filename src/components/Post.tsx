@@ -3,6 +3,8 @@ import { postReciveTypes } from "../globalSettings";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../ContextProvider";
 import { links } from "../globalSettings";
+import styles from "../styles/post.module.css";
+import { Checkbox } from "@mui/material";
 
 export default function Post({
   title,
@@ -19,10 +21,12 @@ export default function Post({
   const globalVariables = useContext(GlobalContext);
 
   function isPublicHtmlElement() {
+    // <input type="checkbox" disabled checked />
+
     return isPublic ? (
-      <input type="checkbox" disabled checked />
+      <Checkbox aria-label="isPublic" defaultChecked disabled />
     ) : (
-      <input type="checkbox" disabled />
+      <Checkbox aria-label="isPublic" disabled />
     );
   }
 
@@ -44,8 +48,17 @@ export default function Post({
 
   function showSeeMoreOrUpdateButton() {
     if (seenInPublicPage)
-      return <button onClick={seeMoreClick}>See More</button>;
-    if (updateable) return <button onClick={updateClicked}>Update</button>;
+      return (
+        <button className={styles.submitInputBox} onClick={seeMoreClick}>
+          See More
+        </button>
+      );
+    if (updateable)
+      return (
+        <button className={styles.submitInputBox} onClick={updateClicked}>
+          Update
+        </button>
+      );
   }
 
   function seeMoreClick(e: MouseEvent) {
@@ -66,14 +79,14 @@ export default function Post({
 
   return (
     <>
-      <div className="p-5">
-        <div>
-          <h1>{title}</h1>
-          <p>{discription}</p>
-          <div id="aditional info about post">
-            {isPublicHtmlElement()}
-            <p>{timecreated}</p>
-          </div>
+      <div className={styles.card}>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.discriptionText}>{discription}</p>
+        <div className={styles.group}>
+          {isPublicHtmlElement()}
+          <p>{timecreated}</p>
+        </div>
+        <div className={styles.centeringButtons}>
           {showSeeMoreOrUpdateButton()}
         </div>
       </div>

@@ -5,14 +5,17 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import GlobalContext from "../../ContextProvider";
+import GlobalContext from "../ContextProvider";
 import { useNavigate } from "react-router-dom";
-import { postReciveTypes, serverPath } from "../../globalSettings";
-import Post from "../../components/Post";
+import { postReciveTypes, serverPath } from "../globalSettings";
+import Post from "../components/Post";
 import {
   fetchCreatePost,
   getAllUserPosts,
 } from "../Controllers/authoringAndEditingController";
+import styles from "../styles/authoringAndEditing.module.css";
+import { Checkbox, FormControlLabel } from "@mui/material";
+import date from "date-and-time";
 
 export function AuthoringAndEditing() {
   const auth = useContext(GlobalContext);
@@ -20,7 +23,7 @@ export function AuthoringAndEditing() {
 
   const titleRef = useRef<HTMLInputElement | null>(null);
   const discriptionRef = useRef<HTMLTextAreaElement | null>(null);
-  const publicRef = useRef<HTMLInputElement | null>(null);
+  const [isPublic, setIsPublic] = useState(false);
   let [getALLUserPostsStored, setGetALLUserPostsStored] = useState<null | {
     posts: Array<postReciveTypes>;
   }>(null);
@@ -33,14 +36,13 @@ export function AuthoringAndEditing() {
   function allTheNewPostToUi() {
     const title = titleRef.current.value;
     const discription = discriptionRef.current.value;
-    const isPublic = publicRef.current.checked;
 
     const newPost: postReciveTypes = {
       title: title,
       _id: "s",
       allCommentsMade: [],
       isPublic: isPublic,
-      timecreated: Date.now().toString(),
+      timecreated: date.format(new Date(), "YYYY/MM/SS hh:mm:ss"),
       discription: discription,
       seenInPublicPage: false,
       updateable: true,
@@ -48,13 +50,18 @@ export function AuthoringAndEditing() {
 
     getALLUserPostsStored.posts.push(newPost);
     setGetALLUserPostsStored({ posts: [...getALLUserPostsStored.posts] });
+    clearFormInputs();
+  }
+
+  function clearFormInputs() {
+    titleRef.current.value = "";
+    discriptionRef.current.value = "";
   }
 
   async function createOrEditPost(e: MouseEvent) {
     e.preventDefault();
     const titleElement = titleRef.current;
     const discriptionElement = discriptionRef.current;
-    const publicElement = publicRef.current;
 
     if (
       titleElement?.value.trim() == "" ||
@@ -66,7 +73,7 @@ export function AuthoringAndEditing() {
       const response = await fetchCreatePost(
         titleElement,
         discriptionElement,
-        publicElement,
+        isPublic,
         auth
       );
 
@@ -105,29 +112,44 @@ export function AuthoringAndEditing() {
 
   return (
     <>
-      {displayAllUserPostsStored()}
-      <form>
+      <form className={styles.formPost}>
+        <h1 className={styles.headerText}>For Post</h1>
         <input
+          className={styles.blogDiscription}
           type="text"
           placeholder="Write Title Here ...."
           name="title"
           ref={titleRef}
         />
         <textarea
+          className={styles.blogDiscription}
           name="discription"
           placeholder="Write Your Blog ...."
           ref={discriptionRef}
         ></textarea>
-        <label htmlFor="public">Public</label>
-        <input
-          type="checkbox"
-          id="public"
-          name="isPublic"
-          value={"true"}
-          ref={publicRef}
+
+        <FormControlLabel
+          control={
+            <Checkbox
+              onChange={(e) => {
+                setIsPublic(e.target.checked);
+              }}
+            />
+          }
+          label="isPublic"
         />
-        <input type="submit" value={"Submit"} onClick={createOrEditPost} />
+
+        <input
+          className={styles.submitInputBox}
+          type="submit"
+          value={"Submit"}
+          onClick={createOrEditPost}
+        />
       </form>
+
+      <div className={styles.centerGrid}>
+        <div className={styles.gridForPost}>{displayAllUserPostsStored()}</div>
+      </div>
     </>
   );
 }

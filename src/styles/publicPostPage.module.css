@@ -1,0 +1,62 @@
+.bigTextUpAbove {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 4rem 0;
+  font-weight: bolder;
+}
+
+.nav {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(169, 169, 169, 0.214);
+}
+
+.profilePic {
+  width: 50px;
+}
+
+.submitInputBox {
+  padding: 0.5rem 1.7rem;
+  font-size: small;
+  font-weight: bold;
+  transition: background-color ease-in-out 300ms, color ease-in-out 300ms,
+    border-color ease-in-out 300ms;
+  border: 1px solid #000;
+  align-self: self-start;
+}
+
+.submitInputBoxOnTheLeft {
+  border-left: 0;
+}
+
+.submitInputBoxOnTheRight {
+  border-right: 0;
+}
+
+.submitInputBox:hover {
+  background-color: var(--account);
+  color: white;
+  border-color: var(--account);
+}
+
+.gridForPost {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 1rem;
+  max-width: 1300px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.bodyOfPublic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
