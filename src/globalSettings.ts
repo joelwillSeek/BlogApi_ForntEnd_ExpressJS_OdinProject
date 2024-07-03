@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
-export const serverPath = process.env.URI;
+export const serverPath =
+  "https://blogapi-backend-expressjs-odinproject.onrender.com";
 
 export const serverRoutes = {
   updatePostRoute: serverPath + "/post/updateAPost",
