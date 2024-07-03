@@ -22,7 +22,7 @@ const SignupPage = () => {
   const navigateTO = useNavigate();
 
   useEffect(() => {
-    if (globalVariables.isAuthenticated) navigateTO("/");
+    if (!globalVariables.isAuthenticated) navigateTO("/");
   }, []);
 
   const submitClicked = async (event: MouseEvent) => {
