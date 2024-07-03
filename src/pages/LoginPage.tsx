@@ -1,5 +1,5 @@
 import React, { MouseEvent, useContext, useEffect, useRef } from "react";
-import { serverPath } from "../globalSettings";
+import { links, serverPath, serverRoutes } from "../globalSettings";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../ContextProvider";
 import styles from "../styles/loginPage.module.css";
@@ -44,7 +44,7 @@ export default () => {
       await auth?.login(token);
 
       auth.setUserName(userName);
-      navigateTO("/publicPost");
+      navigateTO(links.SignUpPageLink);
     } catch (err) {
       console.log(err);
     }
