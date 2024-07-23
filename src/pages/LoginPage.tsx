@@ -40,7 +40,7 @@ export default () => {
       await auth?.login(token);
 
       auth.setUserName(userName);
-      navigateTO(links.SignUpPageLink);
+      navigateTO(links.PublicPostPageLink);
     } catch (err) {
       console.log(err);
     }
